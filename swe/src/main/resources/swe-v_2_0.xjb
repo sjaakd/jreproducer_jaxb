@@ -5,7 +5,7 @@
 
 	<jaxb:bindings schemaLocation="http://schemas.opengis.net/sweCommon/2.0/swe.xsd" node="/xs:schema">
 		<jaxb:schemaBindings>
-			<jaxb:package name="net.opengis.swecommon.v_2_0"/>
+			<jaxb:package name="net.opengis.swecommon.v_2_0.test"/>
 		</jaxb:schemaBindings>
 	</jaxb:bindings>
 
@@ -15,5 +15,20 @@
 			<jaxb:property name="valuesBase" />
 		</jaxb:bindings>
 	</jaxb:bindings>
+
+	<!--
+	left this out from: https://github.com/highsource/ogc-schemas/blob/master/sweCommon/2.0/src/main/resources/sweCommon-v_2_0.xjb
+	xmlns:wildcard="http://jaxb2-commons.dev.java.net/basic/wildcard"
+
+
+	<jaxb:bindings
+			schemaLocation="http://schemas.opengis.net/sweCommon/2.0/basic_types.xsd"
+			node="/xs:schema">
+		<jaxb:bindings node="xs:complexType[@name='EncodedValuesPropertyType']">
+			<wildcard:lax/>
+		</jaxb:bindings>
+	</jaxb:bindings>
+    -->
+
 
 </jaxb:bindings>

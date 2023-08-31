@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:exa="http://example.org"
+        xmlns:swe="http://www.opengis.net/swe/2.0" 
+        xmlns="http://www.w3.org/2001/XMLSchema" 
+        targetNamespace="http://example.org"
+        elementFormDefault="qualified" version="1.1.0">
+
+    <import namespace="http://www.opengis.net/swe/2.0" schemaLocation="http://schemas.opengis.net/sweCommon/2.0/swe.xsd"/>
+
+
+    <element name="MyTestResult" type="exa:MyTestResultType" substitutionGroup="swe:DataArray"/>
+    <complexType name="MyTestResultType">
+        <complexContent>
+            <extension base="swe:DataArrayType">
+                <sequence>
+                    <element minOccurs="1" maxOccurs="1" name="values">
+                        <complexType>
+                            <!--                            <complexContent mixed="true">-->
+                            <complexContent>
+                                <extension base="swe:EncodedValuesPropertyType"/>
+                            </complexContent>
+                        </complexType>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+</schema>
+
+
+

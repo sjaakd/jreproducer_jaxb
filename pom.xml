@@ -93,7 +93,7 @@
                         </plugins>
                         <extension>true</extension>
                         <verbose>true</verbose>
-                        <specVersion>2.2</specVersion>
+                        <specVersion>3.0</specVersion>
                         <useDependenciesAsEpisodes>true</useDependenciesAsEpisodes>
                     </configuration>
                 </plugin>

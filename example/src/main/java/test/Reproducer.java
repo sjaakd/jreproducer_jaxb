@@ -1,8 +1,14 @@
 package test;
 
 import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.JAXBException;
-import nl.broservices.xsd.cptcommon.v_1_1.ObjectFactory;
+import jakarta.xml.bind.Marshaller;
+import jakarta.xml.bind.Unmarshaller;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import org.example.MyTestResultType;
+import org.example.ObjectFactory;
 
 public class Reproducer {
     private static final ObjectFactory OF = new ObjectFactory();
@@ -17,9 +23,27 @@ public class Reproducer {
     }
 
     public static void main(String[] args) throws JAXBException {
+
+        // -- create object
         JAXBContext context = getJaxbContext();
-        context.createUnmarshaller();
-        System.out.println( "finished" );
+        MyTestResultType result = OF.createMyTestResultType();
+        MyTestResultType.Values values = OF.createMyTestResultTypeValues();
+//        values.getContent().add( "test" );
+        result.setValues( values );
+        JAXBElement<MyTestResultType> resultElemIn = OF.createMyTestResult( result );
+
+        // -- marshall
+        Marshaller marshaller = context.createMarshaller();
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        marshaller.marshal(  resultElemIn, os );
+
+        // -- unmarshall
+        ByteArrayInputStream is = new ByteArrayInputStream( os.toByteArray() );
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        JAXBElement<MyTestResultType> resultElemOut = (JAXBElement<MyTestResultType>) unmarshaller.unmarshal( is );
+
+        // -- print
+//        System.out.println( "finished: " + resultElemOut.getValue().getValues().getContent().get( 0 ) );
 
     }
 }
