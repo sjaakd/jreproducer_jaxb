@@ -1,0 +1,19 @@
+<jaxb:bindings version="3.0" xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	jaxb:extensionBindingPrefixes="xjc wildcard">
+
+
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/sweCommon/2.0/swe.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="net.opengis.swecommon.v_2_0"/>
+		</jaxb:schemaBindings>
+	</jaxb:bindings>
+
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/sweCommon/2.0/block_components.xsd" node="/xs:schema">
+		<!-- rename base type to avoid collision with inheriting type -->
+		<jaxb:bindings multiple="true" node="//xs:complexType[@name='DataArrayType']//xs:complexContent/xs:extension/xs:sequence/xs:element[@name='values']">
+			<jaxb:property name="valuesBase" />
+		</jaxb:bindings>
+	</jaxb:bindings>
+
+</jaxb:bindings>

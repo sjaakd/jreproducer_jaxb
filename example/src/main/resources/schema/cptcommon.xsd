@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+    Copyright TNO Geologische Dienst Nederland
+
+    Alle rechten voorbehouden.
+    Niets uit deze software mag worden vermenigvuldigd en/of openbaar gemaakt door middel van druk, fotokopie,
+    microfilm of op welke andere wijze dan ook, zonder voorafgaande toestemming van TNO.
+
+    Indien deze software in opdracht werd uitgebracht, wordt voor de rechten en verplichtingen van opdrachtgever
+    en opdrachtnemer verwezen naar de Algemene Voorwaarden voor opdrachten aan TNO, dan wel de betreffende
+    terzake tussen de partijen gesloten overeenkomst.
+
+-->
+<schema xmlns:cpt="http://www.broservices.nl/xsd/cptcommon/1.1"
+        xmlns:swe="http://www.opengis.net/swe/2.0" 
+        xmlns="http://www.w3.org/2001/XMLSchema" 
+        targetNamespace="http://www.broservices.nl/xsd/cptcommon/1.1"
+        elementFormDefault="qualified" version="1.1.0">
+
+    <import namespace="http://www.opengis.net/swe/2.0" schemaLocation="http://schemas.opengis.net/sweCommon/2.0/swe.xsd" />
+
+
+    <element name="ConePenetrationTestResult" type="cpt:ConePenetrationTestResultType" substitutionGroup="swe:DataArray" />
+    <complexType name="ConePenetrationTestResultType">
+        <complexContent>
+            <extension base="swe:DataArrayType">
+                <sequence>
+                    <element minOccurs="1" maxOccurs="1" name="values">
+                        <complexType>
+                            <complexContent mixed="true">
+                                <extension base="swe:EncodedValuesPropertyType" />
+                            </complexContent>
+                        </complexType>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+</schema>
+
+
+

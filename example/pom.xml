@@ -1,0 +1,90 @@
+<!--
+
+    Copyright TNO Geologische Dienst Nederland
+
+    Alle rechten voorbehouden.
+    Niets uit deze software mag worden vermenigvuldigd en/of openbaar gemaakt door middel van druk, fotokopie,
+    microfilm of op welke andere wijze dan ook, zonder voorafgaande toestemming van TNO.
+
+    Indien deze software in opdracht werd uitgebracht, wordt voor de rechten en verplichtingen van opdrachtgever
+    en opdrachtnemer verwezen naar de Algemene Voorwaarden voor opdrachten aan TNO, dan wel de betreffende
+    terzake tussen de partijen gesloten overeenkomst.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>nl.test</groupId>
+        <artifactId>reproducer</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>example</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>nl.test</groupId>
+            <artifactId>sweCommon</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.patrodyne.jvnet</groupId>
+            <artifactId>hisrc-basicjaxb-runtime</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+        </dependency>
+
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.patrodyne.jvnet</groupId>
+                <artifactId>hisrc-higherjaxb40-maven-plugin</artifactId>
+                <configuration>
+                    <schemaIncludes/>
+                    <schemas>
+                        <schema>
+                            <url>https://schema.broservices.nl/xsd/cptcommon/1.1/cptcommon.xsd</url>
+                        </schema>
+                    </schemas>
+                    <bindingDirectory>${basedir}/src/main/resources/META-INF/</bindingDirectory>
+                    <bindingIncludes>
+                        <include>binding.xjb</include>
+                    </bindingIncludes>
+                    <catalog>${basedir}/src/main/resources/META-INF/catalog.xml</catalog>
+                    <useDependenciesAsEpisodes>true</useDependenciesAsEpisodes>
+                    <args combine.children="override">
+                        <arg>-enableIntrospection</arg>
+                    </args>
+                </configuration>
+            </plugin>
+
+            <!-- remove generated, but not required sources -->
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>process-sources</phase>
+                        <configuration>
+                            <target>
+                                <delete dir="${basedir}/target/generated-sources/xjc/net"/>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
