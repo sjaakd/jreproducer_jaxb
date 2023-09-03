@@ -2,5 +2,8 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <group>
         <system systemId="https://reproducer.org/example.xsd" uri="../schema/example.xsd" />
+
+        <system systemId="https://schema.broservices.nl/profile/xlink/1.0/xlink-profile.xsd" uri="maven:nl.bro.opengis:bro_xlink!/schema/xlink-profile.xsd" />
+        <system systemId="https://schema.broservices.nl/profile/swe/1.0/swe-profile.xsd" uri="maven:nl.bro.opengis:bro_swe!/schema/swe-profile.xsd" />
     </group>
 </catalog>
