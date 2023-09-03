@@ -28,7 +28,7 @@ public class Reproducer {
         JAXBContext context = getJaxbContext();
         MyTestResultType result = OF.createMyTestResultType();
         MyTestResultType.Values values = OF.createMyTestResultTypeValues();
-//        values.getContent().add( "test" );
+        values.getContent().add( "test" );
         result.setValues( values );
         JAXBElement<MyTestResultType> resultElemIn = OF.createMyTestResult( result );
 
@@ -43,7 +43,7 @@ public class Reproducer {
         JAXBElement<MyTestResultType> resultElemOut = (JAXBElement<MyTestResultType>) unmarshaller.unmarshal( is );
 
         // -- print
-//        System.out.println( "finished: " + resultElemOut.getValue().getValues().getContent().get( 0 ) );
+        System.out.println( "finished: " + resultElemOut.getValue().getValues().getContent().get( 0 ) );
 
     }
 }
