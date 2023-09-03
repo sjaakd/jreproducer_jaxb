@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <schema xmlns:exa="http://example.org"
-        xmlns:swe="http://www.opengis.net/swe/2.0" 
-        xmlns="http://www.w3.org/2001/XMLSchema" 
+        xmlns:swe="http://www.opengis.net/swe/2.0"
+        xmlns="http://www.w3.org/2001/XMLSchema"
         targetNamespace="http://example.org"
         elementFormDefault="qualified" version="1.1.0">
 
@@ -15,8 +15,7 @@
                 <sequence>
                     <element minOccurs="1" maxOccurs="1" name="values">
                         <complexType>
-                            <!--                            <complexContent mixed="true">-->
-                            <complexContent>
+                            <complexContent mixed="true">
                                 <extension base="swe:EncodedValuesPropertyType"/>
                             </complexContent>
                         </complexType>

@@ -37,8 +37,12 @@ public class Reproducer {
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         marshaller.marshal(  resultElemIn, os );
 
+        // print
+        byte[] resultBytes = os.toByteArray();
+        System.out.println( new String( resultBytes ) );
+
         // -- unmarshall
-        ByteArrayInputStream is = new ByteArrayInputStream( os.toByteArray() );
+        ByteArrayInputStream is = new ByteArrayInputStream( resultBytes );
         Unmarshaller unmarshaller = context.createUnmarshaller();
         JAXBElement<MyTestResultType> resultElemOut = (JAXBElement<MyTestResultType>) unmarshaller.unmarshal( is );
 
