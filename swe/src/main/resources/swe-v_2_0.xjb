@@ -3,13 +3,11 @@
 	jaxb:extensionBindingPrefixes="xjc wildcard">
 
 
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/sweCommon/2.0/swe.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="https://schema.broservices.nl/profile/swe/1.0/swe-profile.xsd" node="/xs:schema">
 		<jaxb:schemaBindings>
 			<jaxb:package name="net.opengis.swecommon.v_2_0.test"/>
 		</jaxb:schemaBindings>
-	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/sweCommon/2.0/block_components.xsd" node="/xs:schema">
 		<!-- rename base type to avoid collision with inheriting type -->
 		<jaxb:bindings multiple="true" node="//xs:complexType[@name='DataArrayType']//xs:complexContent/xs:extension/xs:sequence/xs:element[@name='values']">
 			<jaxb:property name="valuesBase" />

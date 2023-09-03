@@ -27,7 +27,7 @@
 					<schemaIncludes />
 					<schemas>
 						<schema>
-							<url>http://schemas.opengis.net/sweCommon/2.0/swe.xsd</url>
+							<url>https://schema.broservices.nl/profile/swe/1.0/swe-profile.xsd</url>
 						</schema>
 					</schemas>
 					<bindingDirectory>${basedir}/src/main/resources</bindingDirectory>
